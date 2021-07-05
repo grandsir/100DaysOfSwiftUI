@@ -1,5 +1,5 @@
 # What is 100 Days Of SwiftUI?
-It's free course which has been created by Paul Hadson. It's a new varsion (SwiftUI) of 100 Days Of Swift (which uses UIKit)
+It's free course which has been created by Paul Hadson. It's a new version (SwiftUI) of 100 Days Of Swift (which uses UIKit)
 
 Footnote:  The all "100 Days" series serve one purpose: "Making a habit". So, this course gives you a habit at Swift and that's also why I used Paul's course to learn. 
 
