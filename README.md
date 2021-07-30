@@ -50,10 +50,15 @@ https://www.hackingwithswift.com/100/swiftui
 - [Project 6: iExpense](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-6-iExpense)
 - [Day 36](https://www.hackingwithswift.com/100/swiftui/36)
 
+<div style="text-align: center;">
+  <img src="./Assets/iExpense.gif" width="300px"/>
+</div>
+
 #
 - [Project 7: Moonshot](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-7-Moonshot)
 - [Day 39](https://www.hackingwithswift.com/100/swiftui/39)
 
+
 <div style="text-align: center;">
-  <img src="./Assets/iExpense.gif" width="300px"/>
+  <img src="./Assets/Moonshot.gif" width="300px"/>
 </div>
