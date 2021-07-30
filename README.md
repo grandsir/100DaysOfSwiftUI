@@ -17,21 +17,27 @@ https://www.hackingwithswift.com/100/swiftui
 #
 - [Challange 1](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Challange-1-Day19)
 - [Day 19](https://www.hackingwithswift.com/100/swiftui/19)
+#
 
+#
 <div style="text-align: center;">
   <img src="./Assets/Challange1.gif" width="300px"/>
 </div>
+#
 
+#
 
 - [Project 2: Guess The Flag](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-2-Guess%20The%20Flag)
 - [Day 21](https://www.hackingwithswift.com/100/swiftui/21)
 <div style="text-align: center;">
   <img src="./Assets/GuessTheFlag.gif" width="300px"/>
 </div>
+#
 
-
+#
 - [Challange 2](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Challange-2-Day24)
 - [Day 24](https://www.hackingwithswift.com/100/swiftui/24)
+#
 
 <div style="text-align: center;">
   <img src="./Assets/Challange2.png" width="300px"/>
