@@ -49,5 +49,7 @@ https://www.hackingwithswift.com/100/swiftui
 - [Day 37](https://www.hackingwithswift.com/100/swiftui/37)
 
 <div style="text-align: center;">
-  <img src="./Assets/iExpense.gif" width="300px"/>
+  <video width="320" height="240" controls>
+    <source src="movie.mp4" type="video/mov">
+  </video>
 </div>
