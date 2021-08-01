@@ -1,115 +1,120 @@
 //
 //  ContentView.swift
-//  WordScramble
+//  Project-5-WordScramble
 //
-//  Created by Mehmet Atabey on 5.07.2021.
+//  Created by GrandSir on 22.02.2021.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.red)]
+    }
     @State private var usedWords = [String]()
     @State private var rootWord = ""
     @State private var newWord = ""
     
-    
     @State private var errorTitle = ""
     @State private var errorMessage = ""
     @State private var showingError = false
-    
-    @State private var restarted = false
-    
-    //TODO: add a menu to choose difficulty.
-    @State private var chosenDifficulty = 6
-    
-    
     @State private var score = 0
     
     var body: some View {
-        VStack {
-            HStack {
-                HStack{
-                    Image(systemName: "arrow.clockwise")
-                        .foregroundColor(.blue)
-                    Button("Baştan başla") {
-                        self.restartGame()
-                    }
-                }
-                .padding(.leading, 10)
-                Spacer()
-                Text("Skor: \(score)")
-                    .multilineTextAlignment(.center)
-                    .padding(.trailing, 15)
-                    .foregroundColor(.blue)
+        VStack(alignment: .leading) {
+            Button(action: startGame) {
+                Text("Restart")
             }
+            .padding(.leading, 30)
+            
             NavigationView {
                 VStack {
-                    TextField("Kelime girin:", text: $newWord, onCommit: addNewWord)
+                    Spacer()
+                    TextField("Enter your word", text:  $newWord, onCommit: addNewWord)
+                        .autocapitalization(.none)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
                     
-                    List(usedWords, id: \.self) {
-                        Image(systemName: "\($0.count).circle")
-                        
-                        Text($0)
+                    Form {
+                        Section(
+                            header: HStack {
+                                Text("Used Words")
+                                Spacer()
+                                Text("Current Score: \(score)")
+                            }
+                            .font(.headline)
+                            .padding()
+                        )
+                        {
+                            List(usedWords, id: \.self) {word in
+                                HStack {
+                                    Text(word)
+                                    Spacer()
+                                    Image(systemName: "\(word.count).circle")
+                                        .imageScale(.large)
+                                }
+                                .accessibilityElement(children: .ignore)
+                                .accessibility(label: Text("\(word), \(word.count) letters"))
+                            }
+                        }
+                        .textCase(nil)
                     }
-                    .listStyle(InsetGroupedListStyle())
                 }
-                .navigationBarTitle(rootWord)
-                .onAppear(perform: {
-                    initGame()
-                })
+                .navigationTitle(rootWord)
+                .onAppear(perform: startGame)
                 .alert(isPresented: $showingError) {
-                    Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("Tamam")))
+                    Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
                 }
             }
         }
     }
-    
-    func addNewWord() {
-        let answer = newWord.lowercased()
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-        
+    func addNewWord () {
+        let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+        guard answer.count > 0 else { return }
         
         guard isOriginal(word: answer) else {
-            wordError(title: "Kelime daha önce kullanılmış", message: "Daha orijinal olman gerek")
+            wordError(title: "Word used already", message: "Be more original")
             return
         }
-        
         guard isPossible(word: answer) else {
-            wordError(title: "Kelime verilen harflere uymuyor.", message: "Geçerli bir kelime girin.")
+            wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
             return
         }
         
+        guard isRealWord(word: answer) else {
+            wordError(title: "Word not possible", message: "That isn't a real word")
+            return
+        }
+        guard isSame(word: answer) else {
+            wordError(title: "Same word as root word.", message: "Be much more original.")
+            return
+        }
         guard isReal(word: answer) else {
-            wordError(title: "\(answer) kurallara uymayan bir kelime", message: "Geçerli bir kelime girin.")
+            wordError(title: "Too short", message: "You have to enter words longer than 3 letters.")
             return
         }
-        
-        self.score += answer.count
         usedWords.insert(answer, at: 0)
+        score += answer.count
+        newWord = ""
     }
     
-    func initGame() {
-        if let startWordsURL = Bundle.main.url(forResource: "\(chosenDifficulty) harfli kelimeler", withExtension: "txt") {
-            if let startWords = try? String(contentsOf: startWordsURL) {
+    func startGame() {
+        self.score = 0
+        self.usedWords.removeAll()
+        if let startWordsUrl = Bundle.main.url(forResource: "start", withExtension: "txt") {
+            if let startWords = try? String(contentsOf: startWordsUrl) {
                 let allWords = startWords.components(separatedBy: "\n")
                 rootWord = allWords.randomElement() ?? "silkworm"
                 return
             }
         }
-        fatalError("Can not load \(chosenDifficulty) harfli kelimeler.txt from Bundle")
+        fatalError("Could not load start.txt from bundle.")
     }
-    
     func isOriginal(word: String) -> Bool {
-        usedWords.filter({$0 == word}).first == nil
+        !usedWords.contains(word)
     }
-    
     func isPossible(word: String) -> Bool {
         var tempWord = rootWord.lowercased()
-        
         for letter in word {
             if let pos = tempWord.firstIndex(of: letter) {
                 tempWord.remove(at: pos)
@@ -121,44 +126,23 @@ struct ContentView: View {
         
         return true
     }
-    
-    func isReal(word: String) -> Bool {
+    func isRealWord(word: String) -> Bool  {
         let checker = UITextChecker()
-        
-        let range = NSRange(location: 0, length: word.utf16.count)
-        
-        let mispelledrange = checker.rangeOfMisspelledWord(
-            in: word,
-            range: range,
-            startingAt: 0,
-            wrap: false,
-            language: "tr")
-        
-        //Day32 Challange
-        
-        if(word.count < 3) {
-            return false
-        }
-        
-        if(word == rootWord) {
-            return false
-        }
-        
-        return mispelledrange.location == NSNotFound
+        let range = NSRange(location:0, length: word.utf16.count)
+        let mispelledWord = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+        return mispelledWord.location == NSNotFound
     }
-    
-    
     func wordError(title: String, message: String) {
         errorTitle = title
         errorMessage = message
         showingError = true
     }
+    func isSame(word: String) -> Bool {
+        return word.lowercased() != rootWord
+    }
     
-    func restartGame() {
-        usedWords.removeAll()
-        self.score = 0
-        self.newWord = ""
-        self.initGame()
+    func isReal(word: String) -> Bool {
+        return word.count >= 3
     }
 }
 
