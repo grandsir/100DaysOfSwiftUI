@@ -8,7 +8,7 @@ https://www.hackingwithswift.com/100/swiftui
 
 
 # Projects
-- [Project 1: WeSplit](./Project-1-WeSplit)
+- [Project 1: WeSplit](./Project-01-WeSplit)
 - [Day 16](https://www.hackingwithswift.com/100/swiftui/16)
 <div style="text-align: center;">
   <img src="./Assets/WeSplit.gif" width="300px"/>
@@ -24,7 +24,7 @@ https://www.hackingwithswift.com/100/swiftui
 </div>
 
 #
-- [Project 2: Guess The Flag](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-2-Guess%20The%20Flag)
+- [Project 2: Guess The Flag](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-02-Guess%20The%20Flag)
 - [Day 21](https://www.hackingwithswift.com/100/swiftui/21)
 <div style="text-align: center;">
   <img src="./Assets/GuessTheFlag.gif" width="300px"/>
@@ -47,7 +47,7 @@ https://www.hackingwithswift.com/100/swiftui
 </div>
 
 #
-- [Project 6: iExpense](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-6-iExpense)
+- [Project 6: iExpense](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-06-iExpense)
 - [Day 36](https://www.hackingwithswift.com/100/swiftui/36)
 
 <div style="text-align: center;">
@@ -55,7 +55,7 @@ https://www.hackingwithswift.com/100/swiftui
 </div>
 
 #
-- [Project 7: Moonshot](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-7-Moonshot)
+- [Project 7: Moonshot](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-07-Moonshot)
 - [Day 39](https://www.hackingwithswift.com/100/swiftui/39)
 
 
