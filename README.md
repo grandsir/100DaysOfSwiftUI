@@ -47,7 +47,7 @@ https://www.hackingwithswift.com/100/swiftui
 </div>
 
 #
-- [Project 6: iExpense](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-06-iExpense)
+- [Project 7: iExpense](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-07-iExpense)
 - [Day 36](https://www.hackingwithswift.com/100/swiftui/36)
 
 <div style="text-align: center;">
@@ -55,10 +55,20 @@ https://www.hackingwithswift.com/100/swiftui
 </div>
 
 #
-- [Project 7: Moonshot](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-07-Moonshot)
+- [Project 8: Moonshot](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-08-Moonshot)
 - [Day 39](https://www.hackingwithswift.com/100/swiftui/39)
 
 
 <div style="text-align: center;">
   <img src="./Assets/Moonshot.gif" width="300px"/>
 </div>
+
+#
+- [Project 10: Cupcake Corner](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-10-Moonshot)
+- [Day 49](https://www.hackingwithswift.com/100/swiftui/49)
+
+
+<div style="text-align: center;">
+  <img src="./Assets/Cupcake Corner.gif" width="300px"/>
+</div>
+
