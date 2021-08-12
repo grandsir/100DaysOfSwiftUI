@@ -64,7 +64,7 @@ https://www.hackingwithswift.com/100/swiftui
 </div>
 
 #
-- [Project 10: Cupcake Corner](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-10-Moonshot)
+- [Project 10: Cupcake Corner](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-10-CupcakeCorner)
 - [Day 49](https://www.hackingwithswift.com/100/swiftui/49)
 
 
