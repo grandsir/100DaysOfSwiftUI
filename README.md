@@ -39,11 +39,19 @@ https://www.hackingwithswift.com/100/swiftui
 </div>
 
 #
-- [Challange 2](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Milestone-Project-1)
+- [Milestone-Project-1](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Milestone-Project-1)
 - [Day 25](https://www.hackingwithswift.com/100/swiftui/25)
 
 <div style="text-align: center;">
   <img src="./Assets/RockPaperScissors.gif" width="300px"/>
+</div>
+
+#
+- [Project 4: BetterRest](https://github.com/GrandSir/100DaysOfSwiftUI/tree/main/Project-04-BetterRest)
+- [Day 26](https://www.hackingwithswift.com/100/swiftui/26)
+
+<div style="text-align: center;">
+  <img src="./Assets/BetterRest.gif" width="300px"/>
 </div>
 
 #
